@@ -1,6 +1,8 @@
 import CommunityMap from "../components/CommunityMap";
 
 export default function MapPage() {
+
+  // Temporary test userData until onboarding quiz is integrated
   const userData = {
     province: "Ontario",
     purpose: "study",
@@ -13,9 +15,5 @@ export default function MapPage() {
     needs: ["school", "doctor", "housing"],
   };
 
-  return (
-    <div style={{ padding: "24px" }}>
-      <CommunityMap userData={userData} />
-    </div>
-  );
+  return <CommunityMap userData={userData} />;
 }
