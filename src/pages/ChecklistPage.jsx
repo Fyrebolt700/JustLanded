@@ -5,20 +5,38 @@ import TaskCard from "../components/ui/TaskCard";
 import ProgressBar from "../components/ui/ProgressBar";
 import SectionHeader from "../components/ui/SectionHeader";
 
+const CATEGORY_ORDER = ["Urgent", "First Week", "First Month", "First 6 Months"];
+
+const CATEGORY_LABELS = {
+    "Urgent": "🚨 Urgent — Day 1-2",
+    "First Week": "📅 First Week",
+    "First Month": "🗓️ First Month",
+    "First 6 Months": "📆 First 6 Months",
+};
+
 export default function ChecklistPage() {
-    const { userData, loading } = useUserData();
+    // TEMP: hardcoded test data until auth + quiz are ready
+    const userData = {
+        province: "Ontario",
+        purpose: "study",
+        needs: ["doctor", "housing"],
+        children: ["elementary"],
+        needsDaycare: true,
+        religion: "Hindu",
+    };
+    const loading = false;
+
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
         if (userData) setTasks(generateTasks(userData));
-    }, [userData]);
+    }, []);
 
     const toggle = (id) => setTasks(prev =>
         prev.map(t => t.id === id ? { ...t, done: !t.done } : t)
     );
 
     const completed = tasks.filter(t => t.done).length;
-    const categories = [...new Set(tasks.map(t => t.category))];
 
     if (loading) return <p className="text-gray-500">Loading your checklist...</p>;
 
@@ -30,14 +48,18 @@ export default function ChecklistPage() {
             {tasks.length === 0 ? (
                 <p className="text-gray-400 mt-8 text-center">No tasks yet — complete the onboarding quiz first!</p>
             ) : (
-                categories.map(cat => (
-                    <div key={cat}>
-                        <SectionHeader title={cat} />
-                        {tasks.filter(t => t.category === cat).map(task => (
-                            <TaskCard key={task.id} task={task} onToggle={toggle} />
-                        ))}
-                    </div>
-                ))
+                CATEGORY_ORDER.map(cat => {
+                    const categoryTasks = tasks.filter(t => t.category === cat);
+                    if (categoryTasks.length === 0) return null;
+                    return (
+                        <div key={cat}>
+                            <SectionHeader title={CATEGORY_LABELS[cat]} />
+                            {categoryTasks.map(task => (
+                                <TaskCard key={task.id} task={task} onToggle={toggle} />
+                            ))}
+                        </div>
+                    );
+                })
             )}
         </div>
     );
