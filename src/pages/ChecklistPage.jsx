@@ -8,21 +8,31 @@ import SectionHeader from "../components/ui/SectionHeader";
 const CATEGORY_ORDER = ["Urgent", "First Week", "First Month", "First 6 Months"];
 
 const CATEGORY_LABELS = {
-    "Urgent": "🚨 Urgent — Day 1-2",
-    "First Week": "📅 First Week",
-    "First Month": "🗓️ First Month",
-    "First 6 Months": "📆 First 6 Months",
+    "Urgent": "Urgent — Day 1-2",
+    "First Week": "First Week",
+    "First Month": "First Month",
+    "First 6 Months": "First 6 Months",
 };
 
 export default function ChecklistPage() {
     // TEMP: hardcoded test data until auth + quiz are ready
     const userData = {
+        name: "Suhaani",
+        nationality: "Indian",
         province: "Ontario",
         purpose: "study",
-        needs: ["doctor", "housing"],
-        children: ["elementary"],
-        needsDaycare: true,
-        religion: "Hindu",
+        status: "temp_resident",
+        language: "en",
+        religion: "hinduism",
+        children: true,
+        childrenDetails: [{ level: "elementary" }],
+        housing: true,
+        personal: {
+            daycare: true,
+            nursing_homes: false,
+            settlement: true,
+            legal: true
+        }
     };
     const loading = false;
 
@@ -38,15 +48,25 @@ export default function ChecklistPage() {
 
     const completed = tasks.filter(t => t.done).length;
 
-    if (loading) return <p className="text-gray-500">Loading your checklist...</p>;
+    if (loading) return (
+        <p style={{ color: '#9ca3af' }} className="font-light">
+            Loading your checklist...
+        </p>
+    );
 
     return (
         <div>
-            <h1 className="text-3xl font-bold mb-1">Your Settlement Checklist</h1>
-            <p className="text-gray-500 mb-4">Complete these tasks to get settled in Canada.</p>
+            <h1 style={{ color: '#1a1a1a' }} className="text-5xl font-light mb-2">
+                Your Settlement Checklist
+            </h1>
+            <p style={{ color: '#6b6b6b' }} className="text-base font-light tracking-wide">
+                Complete these tasks to get settled in Canada.
+            </p>
             <ProgressBar completed={completed} total={tasks.length} />
             {tasks.length === 0 ? (
-                <p className="text-gray-400 mt-8 text-center">No tasks yet — complete the onboarding quiz first!</p>
+                <p style={{ color: '#9ca3af' }} className="mt-12 text-center font-light">
+                    No tasks yet — complete the onboarding quiz first!
+                </p>
             ) : (
                 CATEGORY_ORDER.map(cat => {
                     const categoryTasks = tasks.filter(t => t.category === cat);
