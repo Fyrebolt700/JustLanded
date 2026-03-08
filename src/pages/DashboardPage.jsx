@@ -17,12 +17,12 @@ export default function DashboardPage() {
     const firstName = user?.given_name || user?.name?.split(" ")[0] || "there";
 
     return (
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col items-center gap-12 text-center">
             <div className="flex flex-col gap-3">
-                <h1 style={{ fontFamily: 'Cormorant Garamond, serif', color: '#1a1a1a' }} className="text-6xl font-light leading-tight">
+                <h1 style={{ color: '#1a1a1a' }} className="text-6xl font-light leading-tight">
                     Welcome to {city},<br />{firstName}.
                 </h1>
-                <p style={{ fontFamily: 'Jost, sans-serif', color: '#6b6b6b' }} className="text-lg font-light tracking-wide">
+                <p style={{ color: '#6b6b6b' }} className="text-lg font-light tracking-wide">
                     What can we help you with today?
                 </p>
             </div>
@@ -33,12 +33,10 @@ export default function DashboardPage() {
                         key={f.path}
                         onClick={() => navigate(f.path)}
                         style={{
-                            border: '1px solid #d4cfc4',
-                            fontFamily: 'Jost, sans-serif',
-                            color: '#1a1a1a',
-                            backgroundColor: '#FAF9F2'
+                            backgroundColor: '#A50E06',
+                            color: '#FAF9F2',
                         }}
-                        className="px-10 py-5 rounded-2xl text-sm font-light tracking-widest uppercase hover:border-red-800 hover:text-red-800 transition-all"
+                        className="px-10 py-5 rounded-2xl text-sm font-light tracking-widest uppercase hover:opacity-80 transition-all"
                     >
                         {f.title}
                     </button>
