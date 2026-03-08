@@ -1,7 +1,7 @@
 import { calculateArrivalScore, getScoreLabel, getTopRecommendations } from "../utils/arrivalScore";
 
 function CircularGauge({ score }) {
-    const radius = 130;
+    const radius = 110;
     const stroke = 14;
     const normalizedRadius = radius - stroke / 2;
     const circumference = Math.PI * normalizedRadius;
@@ -9,16 +9,16 @@ function CircularGauge({ score }) {
 
     return (
         <div className="flex flex-col items-center">
-            <svg width="320" height="190" viewBox="0 0 320 190">
+            <svg width="280" height="200" viewBox="0 0 280 200">
                 <path
-                    d={`M ${stroke} ${radius + 10} A ${normalizedRadius} ${normalizedRadius} 0 0 1 ${320 - stroke} ${radius + 10}`}
+                    d={`M ${stroke} ${radius + 30} A ${normalizedRadius} ${normalizedRadius} 0 0 1 ${280 - stroke} ${radius + 30}`}
                     fill="none"
                     stroke="#e8e4d9"
                     strokeWidth={stroke}
                     strokeLinecap="round"
                 />
                 <path
-                    d={`M ${stroke} ${radius + 10} A ${normalizedRadius} ${normalizedRadius} 0 0 1 ${320 - stroke} ${radius + 10}`}
+                    d={`M ${stroke} ${radius + 30} A ${normalizedRadius} ${normalizedRadius} 0 0 1 ${280 - stroke} ${radius + 30}`}
                     fill="none"
                     stroke="#A50E06"
                     strokeWidth={stroke}
@@ -28,23 +28,23 @@ function CircularGauge({ score }) {
                     style={{ transition: 'stroke-dashoffset 1s ease-in-out' }}
                 />
                 <text
-                    x="160"
-                    y="148"
+                    x="140"
+                    y="152"
                     textAnchor="middle"
-                    style={{ fontFamily: 'Jost, sans-serif', fontSize: '72px', fontWeight: '300', fill: '#1a1a1a' }}
+                    style={{ fontFamily: 'Jost, sans-serif', fontSize: '68px', fontWeight: '300', fill: '#1a1a1a' }}
                 >
                     {score}
                 </text>
                 <text
-                    x="160"
-                    y="178"
+                    x="140"
+                    y="182"
                     textAnchor="middle"
                     style={{ fontFamily: 'Jost, sans-serif', fontSize: '13px', fontWeight: '300', fill: '#9ca3af', letterSpacing: '0.1em' }}
                 >
                     OUT OF 100
                 </text>
             </svg>
-            <p style={{ color: getScoreLabel(score).color }} className="text-base font-light tracking-widest uppercase text-center mt-1">
+            <p style={{ color: getScoreLabel(score).color }} className="text-base font-light tracking-widest uppercase text-center">
                 {getScoreLabel(score).label}
             </p>
         </div>
