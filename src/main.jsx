@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     // Redriects to the app's base url
     //need to useNativate in login page to move it to quiz
     authorizationParams={{ redirect_uri: "http://localhost:5173" }}
-    cacheLocation="localstorage"
+    cacheLocation="memory"
   >
       <App />
     </Auth0Provider>

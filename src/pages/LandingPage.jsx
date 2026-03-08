@@ -3,19 +3,20 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
-    // const { loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
-    const { loginWithRedirect, logout, isAuthenticated, isLoading } = useAuth0();
+    const { loginWithRedirect, isAuthenticated, isLoading } = useAuth0();
+    //const { loginWithRedirect, logout, isAuthenticated, isLoading, error } = useAuth0();
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("isLoading:", isLoading, "isAuthenticated:", isAuthenticated);
+        //console.log("isLoading:", isLoading, "isAuthenticated:", isAuthenticated);
         if(!isLoading && isAuthenticated) {
             navigate("/onboarding");
         }
     }, [isAuthenticated, isLoading]);
 
-    console.log("domain:", import.meta.env.VITE_AUTH0_DOMAIN);
-    console.log("clientId:", import.meta.env.VITE_AUTH0_CLIENT_ID);
+    // console.log("domain:", import.meta.env.VITE_AUTH0_DOMAIN);
+    // console.log("clientId:", import.meta.env.VITE_AUTH0_CLIENT_ID);
+    // console.log("error:", error);
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-red-700 text-white">
