@@ -1,3 +1,28 @@
+import CommunityMap from "../components/CommunityMap";
+
 export default function MapPage() {
-    return <div><h1 className="text-2xl font-bold">Service Map</h1><p className="text-gray-500 mt-2">Teammate feature coming soon.</p></div>;
+  // Temporary test userData until onboarding quiz is integrated
+  const userData = {
+    name: "Test User",
+    nationality: "India",
+    province: "Ontario",
+    purpose: "study",
+    status: "temp_resident",
+    language: "en",
+    religion: "hinduism",
+    children: true,
+    childrenDetails: [
+      { level: "elementary" },
+      { level: "middle" },
+    ],
+    housing: true,
+    personal: {
+      daycare: true,
+      nursing_homes: false,
+      settlement: true,
+      legal: true,
+    },
+  };
+
+  return <CommunityMap userData={userData} />;
 }
