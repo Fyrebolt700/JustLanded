@@ -1,3 +1,12 @@
 export default function ChatbotPage() {
-    return <div><h1 className="text-2xl font-bold">Chatbot</h1><p className="text-gray-500 mt-2">Teammate feature coming soon.</p></div>;
+    return (
+        <div className="flex flex-col gap-3">
+            <h1 style={{ fontFamily: 'Cormorant Garamond, serif', color: '#1a1a1a' }} className="text-5xl font-light">
+                Chatbot
+            </h1>
+            <p style={{ fontFamily: 'Jost, sans-serif', color: '#9ca3af' }} className="font-light tracking-wide">
+                Teammate feature coming soon.
+            </p>
+        </div>
+    );
 }

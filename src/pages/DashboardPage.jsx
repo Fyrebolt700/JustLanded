@@ -1,31 +1,47 @@
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useUserData } from "../hooks/useUserData";
-import FeatureCard from "../components/ui/FeatureCard";
 
 const features = [
-    { title: "My Checklist", description: "Track your settlement tasks step by step.", icon: "✅", path: "/checklist" },
-    { title: "Ask the Chatbot", description: "Get help navigating in your language.", icon: "💬", path: "/chatbot" },
-    { title: "Find Services", description: "Discover nearby services on a map.", icon: "📍", path: "/map" },
+    { title: "Checklist", path: "/checklist" },
+    { title: "Chatbot", path: "/chatbot" },
+    { title: "Service Map", path: "/map" },
 ];
 
 export default function DashboardPage() {
     const { user } = useAuth0();
-    const { userData, loading } = useUserData();
+    const { userData } = useUserData();
     const navigate = useNavigate();
 
+    const city = userData?.city || "Canada";
+    const firstName = user?.given_name || user?.name?.split(" ")[0] || "there";
+
     return (
-        <div>
-            <h1 className="text-3xl font-bold mb-1">
-                Welcome to Canada, {user?.given_name || "Friend"}! 🍁
-            </h1>
-            <p className="text-gray-500 mb-2">What do you need help with today?</p>
-            {!loading && userData?.province && (
-                <p className="text-sm text-gray-400 mb-8">Province: <strong>{userData.province}</strong></p>
-            )}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-3">
+                <h1 style={{ fontFamily: 'Cormorant Garamond, serif', color: '#1a1a1a' }} className="text-6xl font-light leading-tight">
+                    Welcome to {city},<br />{firstName}.
+                </h1>
+                <p style={{ fontFamily: 'Jost, sans-serif', color: '#6b6b6b' }} className="text-lg font-light tracking-wide">
+                    What can we help you with today?
+                </p>
+            </div>
+
+            <div className="flex flex-row gap-4">
                 {features.map(f => (
-                    <FeatureCard key={f.path} {...f} onClick={() => navigate(f.path)} />
+                    <button
+                        key={f.path}
+                        onClick={() => navigate(f.path)}
+                        style={{
+                            border: '1px solid #d4cfc4',
+                            fontFamily: 'Jost, sans-serif',
+                            color: '#1a1a1a',
+                            backgroundColor: '#FAF9F2'
+                        }}
+                        className="px-10 py-5 rounded-2xl text-sm font-light tracking-widest uppercase hover:border-red-800 hover:text-red-800 transition-all"
+                    >
+                        {f.title}
+                    </button>
                 ))}
             </div>
         </div>
