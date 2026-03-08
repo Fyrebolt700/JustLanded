@@ -24,7 +24,7 @@ function CircularGauge({ score }) {
                     strokeWidth={stroke}
                     strokeLinecap="round"
                     strokeDasharray={`${circumference} ${circumference}`}
-                    strokeDashoffset={progress}
+                    strokeDashoffset={score === 0 ? circumference + 1 : progress}
                     style={{ transition: 'stroke-dashoffset 1s ease-in-out' }}
                 />
                 <text
