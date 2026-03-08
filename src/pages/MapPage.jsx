@@ -1,12 +1,28 @@
+import CommunityMap from "../components/CommunityMap";
+
 export default function MapPage() {
-    return (
-        <div className="flex flex-col gap-3">
-            <h1 style={{ color: '#1a1a1a' }} className="text-5xl font-light">
-                Service Map
-            </h1>
-            <p style={{ color: '#9ca3af' }} className="font-light tracking-wide">
-                Teammate feature coming soon.
-            </p>
-        </div>
-    );
+  // Temporary test userData until onboarding quiz is integrated
+  const userData = {
+    name: "Test User",
+    nationality: "India",
+    province: "Ontario",
+    purpose: "study",
+    status: "temp_resident",
+    language: "en",
+    religion: "hinduism",
+    children: true,
+    childrenDetails: [
+      { level: "elementary" },
+      { level: "middle" },
+    ],
+    housing: true,
+    personal: {
+      daycare: true,
+      nursing_homes: false,
+      settlement: true,
+      legal: true,
+    },
+  };
+
+  return <CommunityMap userData={userData} />;
 }
