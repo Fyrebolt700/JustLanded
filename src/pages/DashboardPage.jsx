@@ -48,15 +48,15 @@ export default function DashboardPage() {
                 </p>
             </div>
 
-            {/* Score + buttons side by side */}
-            <div className="flex flex-row gap-8 items-start">
-                {/* Arrival Score — fixed width */}
-                <div className="w-96 flex-shrink-0">
-                    <ArrivalScore tasks={tasks} />
-                </div>
+            {/* Arrival Score */}
+            <ArrivalScore tasks={tasks} />
 
-                {/* Feature buttons — stacked vertically beside score */}
-                <div className="flex flex-col gap-4 pt-2">
+            {/* Feature buttons */}
+            <div className="flex flex-col items-center gap-4">
+                <p style={{ color: '#6b6b6b' }} className="text-base font-light tracking-wide">
+                    Pick a tool and take the next step in your journey.
+                </p>
+                <div className="flex flex-row gap-4">
                     {features.map(f => (
                         <button
                             key={f.path}
