@@ -36,7 +36,7 @@ JustLanded uses a clean, component-driven architecture designed for rapid iterat
 
 ## Demo
 
-_Live demo URL coming soon._
+URL: https://just-landed-demo.netlify.app/
 
 ## Development and Contributions
 
