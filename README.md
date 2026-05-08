@@ -19,6 +19,8 @@ The project was completed by a team of four.
 - **Chatbot:** Gemini API
 - **Font:** Jost (Google Fonts)
 
+![map](maps.gif)
+
 ## Key Features
 
 - **Personalized Onboarding Quiz:** Collects information about the user's province, purpose, language, family situation, and more to tailor the entire experience.
@@ -26,8 +28,6 @@ The project was completed by a team of four.
 - **Arrival Score:** A visual progress tracker that scores settlement completion out of 100, weighted by task importance, and surfaces the highest-impact incomplete tasks.
 - **Community Service Map:** A satellite-integrated map that surfaces nearby settlement agencies, places of worship, schools, daycares, and other relevant services based on the user's profile.
 - **Multilingual Chatbot:** Powered by the Gemini API, the chatbot helps users navigate the platform in their primary language, removing language as a barrier to settlement support.
-
-![map](maps.gif)
 
 ## Architecture
 
