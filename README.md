@@ -2,6 +2,8 @@
 
 JustLanded is a personalized settlement companion for newcomers to Canada. By learning about each user through a short onboarding quiz, the app generates a tailored checklist, tracks settlement progress through an Arrival Score, surfaces nearby community services on a map, and provides multilingual chatbot support — all in one place.
 
+![checklist](checklist.gif)
+
 ## Overview
 
 Built during Hack Canada 2026, JustLanded addresses the overwhelming and fragmented experience of immigrating to Canada. Rather than forcing newcomers to navigate dozens of government websites in an unfamiliar language, JustLanded consolidates everything into a single, personalized dashboard that meets each user where they are.
