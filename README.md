@@ -27,6 +27,8 @@ The project was completed by a team of four.
 - **Community Service Map:** A satellite-integrated map that surfaces nearby settlement agencies, places of worship, schools, daycares, and other relevant services based on the user's profile.
 - **Multilingual Chatbot:** Powered by the Gemini API, the chatbot helps users navigate the platform in their primary language, removing language as a barrier to settlement support.
 
+![map](maps.gif)
+
 ## Architecture
 
 JustLanded uses a clean, component-driven architecture designed for rapid iteration during the hackathon:
